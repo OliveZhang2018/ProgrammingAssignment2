@@ -37,3 +37,29 @@ cacheSolve <- function(x, ...) {
   x$setInverse(m)
   m
 }
+
+### the following is a simple test on this two functions
+> A = rbind(c(4,7),c(2,6))
+> A
+     [,1] [,2]
+[1,]    4    7
+[2,]    2    6
+> testM <- makeCacheMatrix(A)
+> testM$get()
+     [,1] [,2]
+[1,]    4    7
+[2,]    2    6
+> cacheSolve(testM)
+     [,1] [,2]
+[1,]  0.6 -0.7
+[2,] -0.2  0.4
+> testM$getInverse()
+     [,1] [,2]
+[1,]  0.6 -0.7
+[2,] -0.2  0.4
+> cacheSolve(testM)
+getting cached data
+     [,1] [,2]
+[1,]  0.6 -0.7
+[2,] -0.2  0.4
+> 
